@@ -4,6 +4,7 @@ const cors = require("cors")
 const cookieParser = require("cookie-parser")
 const mongoose = require("mongoose")
 const authRoute = require("./routes/auth")
+const userRoute = require("./routes/user")
 const app = express();
 dotenv.config()
 
@@ -28,6 +29,7 @@ app.use(cookieParser());
 app.use(express.json());
 
 app.use("/v1/auth", authRoute);
+app.use("/v1/users", userRoute)
 
 //xu ly neu co loi xay ra
 app.use((err, req, res, next) => {
