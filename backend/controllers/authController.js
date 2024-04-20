@@ -3,6 +3,9 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const { createdError } = require("../utils/error");
 
+
+//store accessToken by redux toolkit
+//store refreshToken in http cookie
 let refreshTokens = []
 
 const authController = {
