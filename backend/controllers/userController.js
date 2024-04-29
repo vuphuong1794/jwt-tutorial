@@ -12,12 +12,12 @@ const userController = {
   },
 
   //DELETE USER
-  deleteUser: async (req,res,next)=>{
+  deleteUser: async (req,res)=>{
     try{
-        const user = await User.findById(req.body.params)
+        const user = await User.findById(req.params.id)
         res.status(200).json("Delete Success")
     }catch(err){
-        next(err)
+      res.status(500).json(err);
     }
   }
 };

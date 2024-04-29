@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 const { createdError } = require("../utils/error");
 
 
-//store accessToken by redux toolkit
+//store accessToken in redux persist
 //store refreshToken in http cookie
 let refreshTokens = []
 
@@ -33,7 +33,7 @@ const authController = {
     return jwt.sign(
       { id: user.id, admin: user.admin },
       process.env.JWT_ACCESS_KEY,
-      { expiresIn: "20s" }
+      { expiresIn: "20m" }
     );
   },
 
@@ -41,7 +41,7 @@ const authController = {
     return jwt.sign(
       { id: user.id, admin: user.admin },
       process.env.JWT_REFRESH_KEY,
-      { expiresIn: "1m" }
+      { expiresIn: "1d" }
     );
   },
 

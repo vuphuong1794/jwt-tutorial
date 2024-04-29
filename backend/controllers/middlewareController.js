@@ -23,7 +23,7 @@ const middlewareController= {
             if(req.user.id == req.params.id || req.user.admin){
                 next()
             }else{
-                return next(createdError(403, "You are not allowed to delete other user!"));
+                res.status(403).json("You're not allowed to delete other");
             }
         })
     }
